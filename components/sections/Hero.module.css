@@ -1,0 +1,240 @@
+.heroSection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px var(--spacing-lg) var(--spacing-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: var(--spacing-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Left content */
+.content {
+  flex: 1;
+  z-index: 2;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-lg);
+}
+
+.labelLines {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.labelLines::before,
+.labelLines::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 14px;
+  background-color: var(--color-text-muted);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text-primary);
+}
+
+.name {
+  display: block;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xl);
+  max-width: 520px;
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* Stats counters */
+.stats {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statNumber {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+  letter-spacing: 0.5px;
+}
+
+.statDivider {
+  width: 1px;
+  height: 40px;
+  background-color: var(--color-border);
+}
+
+/* Right visual - Elegant Portrait */
+.visual {
+  flex: 1.1; /* Slightly larger share */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 420px;
+  height: 520px;
+  max-width: 100%;
+}
+
+.portraitFrame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  z-index: 2;
+  border-radius: 4px; /* Straight but slightly softened */
+}
+
+.mainImage {
+  object-fit: cover;
+  filter: grayscale(20%);
+  transition: filter var(--transition-normal);
+}
+
+.imageWrapper:hover .mainImage {
+  filter: grayscale(0%);
+}
+
+.decorBorder {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 1;
+  border-radius: 4px;
+}
+
+/* Social links sidebar next to image */
+.socialSidebar {
+  position: absolute;
+  left: -60px;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  z-index: 5;
+}
+
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-primary);
+  border-radius: 50%;
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.socialIcon:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+  transform: translateX(-5px);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .heroSection {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 140px;
+    gap: var(--spacing-2xl);
+  }
+
+  .visual {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .description {
+    max-width: 100%;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+
+  .stats {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .socialSidebar {
+    left: 50%;
+    bottom: -60px;
+    flex-direction: row;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 500px) {
+  .imageWrapper {
+    width: 100%;
+    height: 400px;
+  }
+
+  .stats {
+    gap: var(--spacing-md);
+  }
+
+  .statNumber {
+    font-size: 2rem;
+  }
+}

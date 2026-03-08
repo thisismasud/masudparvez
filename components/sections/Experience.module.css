@@ -1,0 +1,158 @@
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-text-primary);
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.tab {
+  padding: 0.7rem 1.8rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-color: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  letter-spacing: 0.5px;
+}
+
+.tab:hover {
+  color: var(--color-text-primary);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.tabActive {
+  background-color: var(--color-accent);
+  color: var(--color-bg-primary);
+  border-color: var(--color-accent);
+}
+
+.tabActive:hover {
+  color: var(--color-bg-primary);
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 200px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 190px;
+  width: 1px;
+  background-color: var(--color-border);
+}
+
+.timelineItem {
+  position: relative;
+  padding-bottom: var(--spacing-xl);
+  padding-left: var(--spacing-xl);
+}
+
+.timelineItem:last-child {
+  padding-bottom: 0;
+}
+
+.timelineDot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-bg-primary);
+  border: 2px solid var(--color-text-muted);
+  border-radius: 50%;
+  left: calc(-6px);
+  top: 6px;
+  z-index: 2;
+  transition: all var(--transition-normal);
+}
+
+.timelineItem:hover .timelineDot {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.timelineDate {
+  position: absolute;
+  left: -200px;
+  width: 180px;
+  text-align: right;
+  top: 2px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.5px;
+  font-family: var(--font-heading);
+  font-style: italic;
+}
+
+.timelineContent {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-lg);
+  transition: all var(--transition-normal);
+}
+
+.timelineContent:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.jobTitle {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: var(--color-text-primary);
+}
+
+.company {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
+}
+
+.description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 1.5rem;
+  }
+
+  .timeline::before {
+    left: 0;
+  }
+
+  .timelineDot {
+    left: calc(-1.5rem - 6px);
+  }
+
+  .timelineDate {
+    position: static;
+    width: auto;
+    text-align: left;
+    margin-bottom: 0.5rem;
+  }
+
+  .tabs {
+    flex-wrap: wrap;
+  }
+}

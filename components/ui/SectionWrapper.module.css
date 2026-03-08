@@ -1,0 +1,21 @@
+.section {
+  padding: var(--spacing-3xl) 0;
+  width: 100%;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--spacing-xl) 0;
+  }
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+}

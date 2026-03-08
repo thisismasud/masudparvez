@@ -1,0 +1,128 @@
+.blogPage {
+  background-color: var(--color-bg-primary);
+  min-height: 100vh;
+}
+
+.heroSection {
+  padding-top: 140px;
+  padding-bottom: var(--spacing-xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.content {
+  max-width: 800px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-primary);
+}
+
+.tagline {
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.listingSection {
+  padding-top: var(--spacing-2xl);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  gap: var(--spacing-2xl);
+}
+
+.blogCard {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transition-normal);
+}
+
+.blogCard:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.blogImage {
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.blogCard:hover .blogImage {
+  transform: scale(1.05);
+}
+
+.cardContent {
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.meta {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: 0.8rem;
+}
+
+.category {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-accent);
+}
+
+.date {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.postTitle {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.excerpt {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--spacing-xl);
+  flex-grow: 1;
+}
+
+.readMore {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+}

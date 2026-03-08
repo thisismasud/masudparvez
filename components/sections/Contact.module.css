@@ -1,0 +1,143 @@
+.contactSection {
+  background-color: var(--color-bg-primary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl);
+  margin-top: var(--spacing-lg);
+}
+
+/* Left column - Info */
+.textCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.message {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xl);
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.contactItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.contactLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.contactValue {
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  transition: color var(--transition-normal);
+}
+
+a.contactValue:hover {
+  color: var(--color-accent);
+}
+
+.socials {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.socialLink {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  transition: color var(--transition-normal);
+}
+
+.socialLink:hover {
+  color: var(--color-text-primary);
+}
+
+.socialLink::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -3px;
+  left: 0;
+  background-color: var(--color-accent);
+  transition: width var(--transition-normal);
+}
+
+.socialLink:hover::after {
+  width: 100%;
+}
+
+/* Right column - Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.inputGroup {
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  color: var(--color-text-primary);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color var(--transition-normal);
+  outline: none;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+}

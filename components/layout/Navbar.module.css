@@ -1,0 +1,151 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: transparent;
+  transition: all var(--transition-normal);
+  padding: 1.25rem 0;
+}
+
+.scrolled {
+  background-color: rgba(28, 29, 36, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
+  padding: 0.75rem 0;
+}
+
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.logo a {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--color-text-primary);
+}
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+}
+
+.navList {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.navList a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  position: relative;
+  transition: color var(--transition-normal);
+  letter-spacing: 0.5px;
+}
+
+.navList a:hover {
+  color: var(--color-text-primary);
+}
+
+.navList a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-accent);
+  transition: width var(--transition-normal);
+}
+
+.navList a:hover::after {
+  width: 100%;
+}
+
+/* "Hire Me" button in nav inherits from global Button styles */
+.navAction {
+}
+
+.mobileToggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 110;
+  gap: 5px;
+  transition: border-color var(--transition-normal);
+}
+
+.mobileToggle:hover {
+  border-color: var(--color-accent);
+}
+
+.bar {
+  width: 1.2rem;
+  height: 1.5px;
+  background: var(--color-text-primary);
+  border-radius: 0;
+  transition: all 0.3s linear;
+  transform-origin: center;
+}
+
+.barOpen1 {
+  transform: rotate(45deg) translate(4.5px, 4.5px);
+}
+.barOpen2 {
+  opacity: 0;
+}
+.barOpen3 {
+  transform: rotate(-45deg) translate(4.5px, -4.5px);
+}
+
+.desktopNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-bg-primary);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 105;
+}
+
+.mobileOpen {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.navList {
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.navList a {
+  font-size: 1.4rem;
+  font-family: var(--font-heading);
+}

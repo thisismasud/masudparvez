@@ -1,0 +1,231 @@
+.postPage {
+  background-color: var(--color-bg-primary);
+  min-height: 100vh;
+}
+
+.heroSection {
+  padding-top: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  max-width: 800px;
+  width: 100%;
+  padding: 0 var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.backLink {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-lg);
+  transition: color var(--transition-normal);
+}
+
+.backLink:hover {
+  color: var(--color-text-primary);
+}
+
+.meta {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: 0.8rem;
+}
+
+.category {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-accent);
+}
+
+.date {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+}
+
+.imageContainer {
+  width: 100%;
+  max-width: 1000px;
+  aspect-ratio: 21/9;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.heroImage {
+  object-fit: cover;
+}
+
+.contentSection {
+  padding-top: var(--spacing-2xl);
+}
+
+.articleGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-2xl);
+}
+
+.article {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: var(--color-text-secondary);
+}
+
+.article h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  margin-top: 3.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.5rem;
+}
+
+.article p {
+  margin-bottom: 1.8rem;
+}
+
+.article strong {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.article ul,
+.article ol {
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+}
+
+.article li {
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+
+.article ul li::before {
+  content: "»";
+  position: absolute;
+  left: -1.5rem;
+  color: var(--color-accent);
+}
+
+.article blockquote {
+  margin: 2.5rem 0;
+  padding: 1.5rem 2rem;
+  border-left: 4px solid var(--color-accent);
+  background-color: var(--color-bg-secondary);
+  font-style: italic;
+  color: var(--color-text-primary);
+}
+
+/* Code Blocks */
+.article pre {
+  background-color: #0d0e12;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2.5rem 0;
+  overflow-x: auto;
+  position: relative;
+}
+
+.article code {
+  font-family: var(--font-fira), monospace;
+  font-size: 0.95rem;
+  color: #e6e6e6;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+.article pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  line-height: 1.5;
+  display: block;
+}
+
+/* Scrollbar for code blocks */
+.article pre::-webkit-scrollbar {
+  height: 6px;
+}
+
+.article pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.article pre::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 10px;
+}
+
+.article pre::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.authorBox,
+.shareBox {
+  padding: var(--spacing-xl);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+}
+
+.authorBox h3,
+.shareBox h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.authorBox p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.shareLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.shareLinks span {
+  cursor: pointer;
+  transition: color var(--transition-normal);
+}
+
+.shareLinks span:hover {
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 900px) {
+  .articleGrid {
+    grid-template-columns: 1fr;
+  }
+}
