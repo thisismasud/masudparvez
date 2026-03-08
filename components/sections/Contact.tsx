@@ -1,12 +1,13 @@
 "use client";
 
+import { sendEmail } from "@/app/actions";
 import styles from "@/components/sections/Contact.module.css";
 import { Button } from "@/components/ui/Button";
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef } from "react";
+import { useActionState, useEffect, useRef } from "react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -14,6 +15,14 @@ if (typeof window !== "undefined") {
 
 export const Contact = () => {
   const container = useRef<HTMLDivElement>(null);
+  const [state, formAction, isPending] = useActionState(sendEmail, null);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (state?.success) {
+      formRef.current?.reset();
+    }
+  }, [state]);
 
   useGSAP(
     () => {
@@ -99,36 +108,60 @@ export const Contact = () => {
           </div>
 
           <div className={styles.formCol}>
-            <form className={`contact-anim ${styles.form}`}>
+            <form
+              ref={formRef}
+              action={formAction}
+              className={`contact-anim ${styles.form}`}
+            >
               <div className={styles.inputGroup}>
                 <input
                   type="text"
+                  name="name"
                   placeholder="Your Name"
                   className={styles.input}
+                  required
                 />
               </div>
               <div className={styles.inputGroup}>
                 <input
                   type="email"
+                  name="email"
                   placeholder="Your Email"
                   className={styles.input}
+                  required
                 />
               </div>
               <div className={styles.inputGroup}>
                 <input
                   type="text"
+                  name="subject"
                   placeholder="Subject"
                   className={styles.input}
                 />
               </div>
               <div className={styles.inputGroup}>
                 <textarea
+                  name="message"
                   placeholder="Your Message"
                   rows={5}
                   className={styles.textarea}
+                  required
                 ></textarea>
               </div>
-              <Button type="submit">Send Message</Button>
+
+              {state && (
+                <div
+                  className={
+                    state.success ? styles.successMessage : styles.errorMessage
+                  }
+                >
+                  {state.success ? state.message : state.error}
+                </div>
+              )}
+
+              <Button type="submit" disabled={isPending}>
+                {isPending ? "Sending..." : "Send Message"}
+              </Button>
             </form>
           </div>
         </div>
