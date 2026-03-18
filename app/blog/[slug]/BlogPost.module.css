@@ -208,22 +208,13 @@
   line-height: 1.6;
 }
 
-.shareLinks {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--color-text-muted);
-}
-
-.shareLinks span {
-  cursor: pointer;
-  transition: color var(--transition-normal);
-}
-
-.shareLinks span:hover {
+.shareBox h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
   color: var(--color-text-primary);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
 }
 
 @media (max-width: 900px) {
@@ -289,10 +280,8 @@
     padding: var(--spacing-lg);
   }
 
-  .shareLinks {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+  .sidebar {
+    gap: var(--spacing-lg);
   }
 }
 

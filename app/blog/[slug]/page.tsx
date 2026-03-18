@@ -1,9 +1,58 @@
 import { SectionWrapper } from "@/components/ui/SectionWrapper";
+import { ShareButtons } from "@/components/ui/ShareButtons";
 import { blogs } from "@/lib/blogData";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import styles from "./BlogPost.module.css";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = blogs.find((b) => b.id === slug);
+
+  if (!post) {
+    return {
+      title: "Post Not Found",
+    };
+  }
+
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL || "https://masudparvez.vercel.app";
+  const postUrl = `${baseUrl}/blog/${slug}`;
+
+  return {
+    title: `${post.title} | Masud Parvez`,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url: postUrl,
+      siteName: "Masud Parvez Portfolio",
+      images: [
+        {
+          url: post.image,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      type: "article",
+      publishedTime: post.date,
+      authors: ["Masud Parvez"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [post.image],
+    },
+  };
+}
 
 export default async function BlogPostPage({
   params,
@@ -58,9 +107,7 @@ export default async function BlogPostPage({
             <div className={styles.shareBox}>
               <h3>Share Post</h3>
               <div className={styles.shareLinks}>
-                <span>Twitter</span>
-                <span>LinkedIn</span>
-                <span>Copy Link</span>
+                <ShareButtons title={post.title} />
               </div>
             </div>
           </aside>

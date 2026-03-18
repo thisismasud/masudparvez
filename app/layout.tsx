@@ -15,6 +15,19 @@ export const metadata: Metadata = {
   title: "Masud Parvez - Full Stack Developer",
   description:
     "Portfolio of Masud Parvez — Full Stack Developer building modern web applications with MERN stack, Next.js, and more.",
+  openGraph: {
+    title: "Masud Parvez | Full Stack Developer",
+    description:
+      "Building modern web experiences with React, Next.js, and Node.js.",
+    siteName: "Masud Parvez Portfolio",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Masud Parvez | Full Stack Developer",
+    description: "Building modern web experiences.",
+  },
 };
 
 export default function RootLayout({

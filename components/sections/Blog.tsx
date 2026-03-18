@@ -47,10 +47,10 @@ export const Blog = () => {
             start: "top 95%",
             toggleActions: "play none none reverse",
           },
-        }
+        },
       );
     },
-    { scope: container }
+    { scope: container },
   );
 
   return (
@@ -69,35 +69,40 @@ export const Blog = () => {
         </div>
 
         <div className={styles.grid}>
-          {blogs.slice(0, 3).map((post, index) => (
-            <Link
-              href={`/blog/${post.id}`}
-              key={post.id}
-              ref={(el) => {
-                if (el) cardsRef.current[index] = el;
-              }}
-              className={styles.blogCard}
-            >
-              <div className={styles.imageContainer}>
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  className={styles.blogImage}
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className={styles.content}>
-                <div className={styles.meta}>
-                  <span className={styles.category}>{post.category}</span>
-                  <span className={styles.date}>{post.date}</span>
+          {[...blogs]
+            .sort(
+              (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+            )
+            .slice(0, 2)
+            .map((post, index) => (
+              <Link
+                href={`/blog/${post.id}`}
+                key={post.id}
+                ref={(el) => {
+                  if (el) cardsRef.current[index] = el;
+                }}
+                className={styles.blogCard}
+              >
+                <div className={styles.imageContainer}>
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className={styles.blogImage}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                 </div>
-                <h3 className={styles.postTitle}>{post.title}</h3>
-                <p className={styles.excerpt}>{post.excerpt}</p>
-                <span className={styles.readMore}>Read Post</span>
-              </div>
-            </Link>
-          ))}
+                <div className={styles.content}>
+                  <div className={styles.meta}>
+                    <span className={styles.category}>{post.category}</span>
+                    <span className={styles.date}>{post.date}</span>
+                  </div>
+                  <h3 className={styles.postTitle}>{post.title}</h3>
+                  <p className={styles.excerpt}>{post.excerpt}</p>
+                  <span className={styles.readMore}>Read Post</span>
+                </div>
+              </Link>
+            ))}
         </div>
       </div>
     </SectionWrapper>
